@@ -47,7 +47,15 @@
   		(recur (toggle set1 (first seq1)) (rest seq1)))))
 
 (defn fast-fibo [n]
-	[":("])
+  (loop [my-n 1
+         n-1 0
+         i 1
+         fib n]
+    (cond
+      (<= fib 0) 0
+      (= fib 1) 1
+      (= i fib) my-n
+      :else (recur (+ my-n n-1) my-n (inc i) fib))))
 
 (defn cut-at-repetition [a-seq]
   [":("])
